@@ -68,3 +68,8 @@
 a{
     color: black;
 }
+
+.bg-dark {
+    background-color: #5c2040;
+    border-color: #5c2040;
+}
