@@ -1,0 +1,135 @@
+.profile{
+    background-color: rgba(92, 32, 64, 0.5);
+    color: black;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.userInfo{
+    height: 130px;
+    padding: 25px 0px 10px 0px;
+    position: relative;
+}
+
+#userImg{
+    height: 100px;
+}
+
+#username{
+    margin: 5px 5px 0px 5px;
+}
+
+.empty{
+    height: 50px;
+}
+
+
+.img-label{
+    height: 3em; 
+    text-align: center;  
+    width: 100%; 
+}
+
+.img-upload{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    font-size: 1em;          
+    height: 3em;
+    width: 100%;    
+    margin-top: 135px;
+}
+
+.img-upload input[type=file]{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    height: 3em;
+    width: 100%; 
+}
+
+
+.large-h{
+    margin-bottom: 0px;
+}
+
+.small-h{
+    margin-top: 0px;
+}
+
+.data{
+    margin: 10px 0px 10px 0px;
+}
+
+.holidays{
+    margin-top: 10px;
+}
+
+.dropdown{
+    margin-right: 20px;
+}
+
+.holiday-menu{
+   
+}
+
+.dropdown-menu{
+    z-index: 5;
+}
+
+.list-group-item{
+    z-index: 1;
+}
+
+.holiday-gifts{
+    margin: 10px 0px 10px 0px;
+    overflow: hidden;
+}
+
+
+
+.img-label{
+    height: 100px; 
+    text-align: center;  
+    padding: 40px 0px 0px 40px; 
+}
+.img-block:hover{
+    background-color: #F6F4EF; 
+}
+
+.img_upload{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    font-size: 1em;          
+    height: 100px;
+    width: 100%;               
+}
+
+.img_upload input[type=file]{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    height: 100px;
+    width: 100%; 
+}
+
+.gift-img > img{
+    height: 100px; 
+    text-align: center;   
+}
+.gift-img{
+    padding: 0px 0px 0px 0px;
+}
+
+
+.block{
+    background-color: #f8f3e4;
+    border: 1px solid rgba(65,54,42,0.13725);
+    border-radius: 6px;
+    margin-left: 0px;
+}
+
+a{
+    color:black;
+}

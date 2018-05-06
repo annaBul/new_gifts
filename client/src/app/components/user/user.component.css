@@ -1,0 +1,109 @@
+.profile{
+    background-color: rgba(92, 32, 64, 0.5);
+    color: black;
+    height: 300px;
+    margin: 50px 0px 50px;
+}
+
+.userInfo{
+    margin-top: 90px;
+    margin-bottom: 50px;
+}
+
+.userImg{
+    height: 100px;
+}
+
+#username{
+    margin: 5px 5px 20px 5px;
+}
+
+.empty{
+    height: 50px;
+}
+
+.list-group{
+    margin-top: 20px;
+}
+
+.list{
+    margin-top: 20px;
+}
+
+.block{
+    background-color: #f8f3e4;
+    border: 1px solid rgba(65,54,42,0.13725);
+    border-radius: 6px;
+    margin-left: 0px;
+}
+.user-img > img{
+    height: 100px; 
+    text-align: center;   
+}
+.user-img{
+    padding: 0px 0px 0px 0px;
+}
+
+.img-label{
+    height: 100px; 
+    text-align: center;  
+    padding: 40px 0px 0px 40px; 
+}
+.img-block:hover{
+    background-color: #F6F4EF; 
+}
+
+.img_upload{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    font-size: 1em;          
+    height: 100px;
+    width: 100%;               
+}
+
+.img_upload input[type=file]{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    height: 100px;
+    width: 100%; 
+}
+
+
+.img_upload{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    font-size: 1em;          
+    height: 100px;
+    width: 100%;               
+}
+
+.img_upload input[type=file]{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    height: 100px;
+    width: 100%; 
+}
+
+.gift-img > img{
+    height: 100px; 
+    text-align: center;   
+}
+.gift-img{
+    padding: 0px 0px 0px 0px;
+}
+
+
+.block{
+    background-color: #f8f3e4;
+    border: 1px solid rgba(65,54,42,0.13725);
+    border-radius: 6px;
+    margin-left: 0px;
+}
+
+a{
+    color: black;
+}

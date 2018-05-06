@@ -1,0 +1,25 @@
+#gift-img{
+    height: 150px;
+}
+
+#gift-name{
+    margin-top: 5px;
+    height: 40px;
+}
+
+.thumbnail:hover{
+    background-color: rgba(65,54,42,0.1);
+}
+
+.gift-container{
+    overflow: hidden;
+    text-align: center;
+}
+
+.gift-container>div{
+    text-align: left;
+}
+
+.gift{
+    vertical-align: top;
+}
