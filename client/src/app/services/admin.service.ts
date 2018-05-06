@@ -42,4 +42,15 @@ export class AdminService{
         }
     }  
 
+    ubdateGiftsDB(){
+        if(localStorage.getItem('currentUser')){
+            var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            headers.append('Authorization', currentUser.token); 
+            return this.http.post('http://localhost:3000/admin/update_gifts_db',  JSON.stringify({}), {headers: headers})
+                .map(res => res.json());
+        }
+    }  
+
 }

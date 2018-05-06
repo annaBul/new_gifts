@@ -3,6 +3,7 @@ import { LocalStorageService } from 'angular-2-local-storage';
 import {LoginService} from '../../services/login.service';
 import { Router} from '@angular/router';
 import {DropdownModule} from "ng2-dropdown";
+import { AdminService} from '../../services/admin.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,7 +19,7 @@ export class NavbarComponent implements OnInit {
   constructor(private localStorageService: LocalStorageService,
     private loginService:LoginService,
     private router: Router,
-    
+    private adminService:AdminService
   ) {
     
    }
@@ -46,6 +47,15 @@ export class NavbarComponent implements OnInit {
           }
       });
     };
+  }
+
+  updateGiftsDB($event) {
+    this.adminService.ubdateGiftsDB()
+    .subscribe(res => {
+      if(res.success){
+        console.log('success');           
+      }
+    });
   }
 
 }

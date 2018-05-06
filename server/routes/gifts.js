@@ -27,6 +27,44 @@ router.get('/gifts', function(req, res, next) {
     // });
 });
 
+router.post('/admin/update_gifts_db', function(req, res, next) { 
+    const URLs = ['https://ylet.by/category/hity-prodazh/'];
+    let data = [];
+    
+    const updateGifts = [];
+    const addedGifts = [];
+    db.getAllGifts((err, gifts) => {
+
+        const giftUrls = gifts.map(gift => gift.href);
+
+        getResults(URLs[0], parsePodaro4ek, function(result){
+            data = data.concat(result);             
+
+            data.forEach(gift => {
+                const index = giftUrls.indexOf(gift.href);
+                if (index > -1) {
+                    updateGifts.push(Object.assign({}, gifts[index], gift));
+                } else {
+                    addedGifts.push(gift);
+                }
+            });
+            
+            db.updateGifts(updateGifts, (err, result) => {   
+                if (addedGifts.length > 0) {           
+                    db.insertGifts(addedGifts, (err, result) => {
+                        
+                    });  
+                } else {
+                    return res.send({
+                        success: true
+                    }); 
+                }   
+            }); 
+            
+        });
+    })
+});
+
 var  getResults =function(url, parser, callback){
     request(url, function (err, resp, body){
         try{ 
@@ -75,6 +113,7 @@ function parsePodaro4ek(body){
             var href = 'https://ylet.by' + $(this).children('form').children('div.prdbrief_thumbnail').children('a').attr('href');
             var imageUrl = 'https://ylet.by' + $(this).children('form').children('div.prdbrief_thumbnail').children('a').children('img').attr('src');
             var price = $(this).children('form').children('span.prdbrief_price').children('span').text()  ;
+            price = parseInt(price, 10);
             results.push({
                 name: name,
                 imageUrl: imageUrl,

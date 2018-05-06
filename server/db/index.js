@@ -23,7 +23,9 @@ const INSERT_FRIEND_QUERY = "INSERT INTO `friend` (`user_id`, `name`, `birthday`
 const INSERT_USER_FAVORITE_GIFT_QUERY = "INSERT INTO `favorites` (`user_id`, `gift_id`) VALUES ?";
 const INSERT_FRIEND_FAVORITE_GIFT_QUERY = "INSERT INTO `favorites_for_friend` (`friend_id`, `gift_id`) VALUES ?";
 const INSERT_HOLIDAY_GIFT_QUERY = "INSERT INTO `holiday_gift` (`gift_id`, `holiday_id`) VALUES ?";
+const INSERT_GIFT_QUERY = "INSERT INTO `gift` (`name`, `price`, `image_url`, `external_link`, `description`) VALUES ?";
 
+const UPDATE_GIFT_QUERY = "UPDATE gift SET price = ? WHERE gift_id = ?; ";
 //const UPDATE_USER_BLOCKED_BY_ID_QUERY = "UPDATE `gifts`.`user` SET `blocked`= ? WHERE `user_id`= ? ";
 
 const DELETE_FRIEND_BY_ID_QUERY = 'DELETE FROM `friend` WHERE `friend_id`= ?';
@@ -189,6 +191,17 @@ module.exports = {
         query(INSERT_HOLIDAY_GIFT_QUERY, [[giftId, holidayId]], callback);        
     },
 
+    insertGifts(gifts, callback) {
+        const params = [];
+        console.log(gifts);
+        gifts.forEach(gift => {
+            params.push([gift.name, gift.price, gift.imageUrl, gift.href, gift.description]);
+        })
+        query(INSERT_GIFT_QUERY, params, callback);
+    },
+
+
+
 
     updateUserBlockedById(userId, blocked, callback) {
         query("UPDATE `user` SET `blocked`= "+ blocked +" WHERE `user_id`=" + userId, [], callback);        
@@ -196,6 +209,19 @@ module.exports = {
 
     updateUserRoleById(userId, role, callback) {
         query("UPDATE `user` SET `role`= '"+ role +"' WHERE `user_id`=" + userId, [], callback);        
+    },
+
+    updateGifts(gifts, callback) {
+        let queries = "";
+        gifts.forEach(gift => {
+            queries += mysql.format(UPDATE_GIFT_QUERY, [gift.price, gift.id]);
+                
+        });
+        connection.query(queries, function(err, result) {      
+            if (err) throw err;
+            //if (err) console.log(err);
+            callback(err, result);
+        }); 
     },
 
 
